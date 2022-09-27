@@ -10,7 +10,7 @@ def shutudai(alphabet):
     print("対象文字：", end = "")
     for i in sorted(target):
         print(i, end = " ")
-
+    print()
     defect = random.sample(target, defect_num)
     print("表示文字：", end = "")
     for i in target:
