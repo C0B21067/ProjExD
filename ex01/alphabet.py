@@ -1,4 +1,5 @@
 #　import random改善します
+#　import random改善します2
 import random
 
 trial = 2
