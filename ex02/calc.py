@@ -25,7 +25,7 @@ numbers = list(range(9, -1, -1))
 operators = ["+","-","*","/"]
 for i, num in enumerate(numbers + operators, 1):
     btn = tk.Button(root, font = ("",30), text = f"{num}",width = 4, height = 2)
-    btn.bind("<1>", click_number)
+    btn.bind("<1>", click_numbers)
     btn.grid(row=r, column = c)
     c+=1
     if i %3==0:
