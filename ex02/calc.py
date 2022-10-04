@@ -1,7 +1,7 @@
 import tkinter as tk
 import tkinter.messagebox as tkm
 
-def click_number(event):
+def click_numbers(event):
     btn = event.widget
     num = btn["text"]
     #tkm.showinfo(f"{num}", f"{num}のボタンが押されました")
