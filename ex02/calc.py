@@ -15,20 +15,20 @@ def click_equal(event):
 
 
 root = tk.Tk()
-root.geometry("300x500")
+root.geometry("300x610")
 
 entry = tk.Entry(root, width =10, font= ("",40), justify="right")
 entry.grid(row = 0, column = 0, columnspan = 3)
 
 r, c = 1, 0
 numbers = list(range(9, -1, -1))
-operators = ["+"]
+operators = ["+","-","*","/"]
 for i, num in enumerate(numbers + operators, 1):
     btn = tk.Button(root, font = ("",30), text = f"{num}",width = 4, height = 2)
     btn.bind("<1>", click_number)
     btn.grid(row=r, column = c)
     c+=1
-    if i %3 ==0:
+    if i %3==0:
         r += 1
         c = 0
 
