@@ -1,6 +1,8 @@
 import tkinter as tk
 import tkinter.messagebox as tkm
 
+
+#numbersに変更
 def click_numbers(event):
     btn = event.widget
     num = btn["text"]
