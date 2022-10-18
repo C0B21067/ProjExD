@@ -41,7 +41,7 @@ def main_proc():
 
 if __name__ == "__main__":
     root = tk.Tk()
-    root.title("迷えるコウカトン")
+    root.title("迷えるこうかとん")#ひらがなこうかとんに変更
 
     canv = tk.Canvas(root,width = 1500, height = 900, bg = "black")
     canv.pack()
