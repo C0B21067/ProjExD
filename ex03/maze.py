@@ -31,7 +31,7 @@ def main_proc():
             mx += 1
         if key =="Right":
             mx -= 1
-    #追加機能：残像を残すボタン
+    #追加機能、残像を残すボタン
     if key == "z":
         canv.create_image(cx, cy, image = tori, tag="tori")
 
@@ -60,4 +60,5 @@ if __name__ == "__main__":
     root.bind("<KeyRelease>", key_up)
 
     main_proc()
+    
     root.mainloop()
