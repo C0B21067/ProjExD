@@ -46,7 +46,7 @@ def main():
     #6
     #爆弾のスピード速く
     vx, vy = +3, +3
-    vx2, vy2 = +3, +3
+    vx2, vy2 = +4, +4
 
     clock = pg.time.Clock()#練習1
     while True:
