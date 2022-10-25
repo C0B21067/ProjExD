@@ -1,6 +1,8 @@
+from turtle import speed
 import pygame as pg
 import sys
 from random import randint
+
 
 #7
 def check_bound(obj_rct, scr_rct):#obj_rct:コウカトンrctまたは爆弾rct, scr_rct:スクリーンrct
@@ -19,7 +21,8 @@ def main():
     bg_rct = bg_sfc.get_rect()
 
     #3
-    tori_sfc = pg.image.load("fig/6.png")
+    num=0#初期値0
+    tori_sfc = pg.image.load(f"fig/{num}.png")#変更
     tori_sfc = pg.transform.rotozoom(tori_sfc, 0, 2.0)
     tori_rct = tori_sfc.get_rect()
     tori_rct.center = 900, 400
@@ -31,9 +34,19 @@ def main():
     bomb_rct = bomb_sfc.get_rect()
     bomb_rct.centerx = randint(0, scrn_rct.width)
     bomb_rct.centery = randint(0,scrn_rct.height)
+
+    #爆弾2個め
+    bomb2_sfc = pg.Surface((20,20))
+    bomb2_sfc.set_colorkey((0, 0, 0))
+    pg.draw.circle(bomb2_sfc, (255, 0, 0), (10, 10), 10)
+    bomb2_rct = bomb2_sfc.get_rect()
+    bomb2_rct.centerx = randint(0, scrn_rct.width)
+    bomb2_rct.centery = randint(0,scrn_rct.height)
     
     #6
-    vx, vy = +1, +1
+    #爆弾のスピード速く
+    vx, vy = +3, +3
+    vx2, vy2 = +3, +3
 
     clock = pg.time.Clock()#練習1
     while True:
@@ -70,14 +83,35 @@ def main():
         yoko, tate = check_bound(bomb_rct, scrn_rct)
         vx *= yoko
         vy *= tate
+        yoko2, tate2 = check_bound(bomb2_rct, scrn_rct)
+        vx2 *= yoko2
+        vy2 *= tate2       
 
         bomb_rct.move_ip(vx, vy)#6
+        bomb2_rct.move_ip(vx2, vy2)
         scrn_sfc.blit(bomb_sfc, bomb_rct)#5
+        scrn_sfc.blit(bomb2_sfc, bomb2_rct)
 
         #8
+
+        #爆弾に当たると画像変わる
         if tori_rct.colliderect(bomb_rct):
-            return
+            num+=1
+            if num > 9:
+                num=0
+            tori_sfc = pg.image.load(f"fig/{num}.png")
+            tori_sfc = pg.transform.rotozoom(tori_sfc, 0, 2.0)
         
+        if tori_rct.colliderect(bomb2_rct):
+            num+=1
+            if num > 9:
+                num=0
+            tori_sfc = pg.image.load(f"fig/{num}.png")
+            tori_sfc = pg.transform.rotozoom(tori_sfc, 0, 2.0)
+
+        #Escapeキーで終了
+        if key_states[pg.K_ESCAPE]:
+            return
 
         pg.display.update()
         clock.tick(1000)
