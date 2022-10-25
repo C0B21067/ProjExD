@@ -14,7 +14,7 @@ def check_bound(obj_rct, scr_rct):#obj_rct:コウカトンrctまたは爆弾rct,
     return yoko, tate
 
 def main():
-    pg.display.set_caption("逃げろ！コウカトン")
+    pg.display.set_caption("逃げろ！こうかとん")
     scrn_sfc = pg.display.set_mode((1600,900))
     scrn_rct = scrn_sfc.get_rect()
     bg_sfc = pg.image.load("fig/pg_bg.jpg")
