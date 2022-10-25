@@ -23,6 +23,16 @@ def main():
             if event.type == pg.QUIT:
                 return
 
+        key_states= pg.key.get_pressed()
+        if key_states[pg.K_UP]: #コウカトンの縦座標を-1
+            tori_rct.centery -=20
+        if key_states[pg.K_DOWN]:
+            tori_rct.centery +=20
+        if key_states[pg.K_LEFT]:
+            tori_rct.centerx -=20
+        if key_states[pg.K_RIGHT]:
+            tori_rct.centerx +=20
+
         scrn_sfc.blit(tori_sfc, tori_rct)
 
         pg.display.update()
