@@ -124,8 +124,7 @@ def main():
 
         # 練習8
         if kkt.rct.colliderect(bkd.rct): # こうかとんrctが爆弾rctと重なったら
-            ds = Sounds() #死んだときのBGMインスタンス化
-            ds.sounds("ex05/data/failed.mp3", 6) #呼び出し
+            ds = Sounds().sounds("ex05/data/failed.mp3", 6) #死んだときのBGMインスタンス化、呼び出し
             return
 
         pg.display.update() #練習2
