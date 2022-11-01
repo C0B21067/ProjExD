@@ -1,7 +1,18 @@
 import pygame as pg
 import sys
 from random import randint
+import pygame.mixer
+import time
 
+
+class Sounds:
+    def __init__(self): #再生する音楽と秒数を引数に持つ
+        pygame.mixer.init() #初期設定
+
+    def sounds(self, music, s):
+        pygame.mixer.music.load(music)
+        pygame.mixer.music.play(-1)
+        time.sleep(s)
 
 
 class Screen:
@@ -90,6 +101,9 @@ def main():
     # 練習5
     bkd = Bomb((255, 0, 0), 10, (+1, +1), scr)
 
+    bs = Sounds() #インスタンス化
+    bs.sounds("ex05/data/house_lo.mp3", 0) #音楽を指定して呼び出し
+
     clock = pg.time.Clock() # 練習1
 
     while True:
@@ -110,6 +124,8 @@ def main():
 
         # 練習8
         if kkt.rct.colliderect(bkd.rct): # こうかとんrctが爆弾rctと重なったら
+            ds = Sounds() #死んだときのBGMインスタンス化
+            ds.sounds("ex05/data/failed.mp3", 6) #呼び出し
             return
 
         pg.display.update() #練習2
