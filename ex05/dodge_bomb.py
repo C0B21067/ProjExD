@@ -53,7 +53,7 @@ class Bird:
                 if check_bound(self.rct, scr.rct) != (+1, +1):
                     self.rct.centerx -= delta[0]
                     self.rct.centery -= delta[1]
-        self.blit(scr) # =scr.sfc.blit(self.sfc, self.rct)
+        self.blit(scr)
 
 
 class Bomb:
